@@ -3,8 +3,8 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
 // Define a quantidade máxima de registros que serão exibidos e a quantidade de registros carregados a cada vez
-const maxRecords = 151
-const limit = 10
+const maxRecords = 1118
+const limit = 151
 
 // Define o índice inicial para a listagem de pokemons
 let offset = 0;
