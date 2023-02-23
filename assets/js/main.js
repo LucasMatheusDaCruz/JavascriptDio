@@ -1,10 +1,48 @@
+// Obtém o elemento de input e o botão de busca
+const searchInput = document.getElementById('searchInput')
+const searchButton = document.getElementById('searchButton')
+
+// Adiciona um ouvinte de eventos para o botão de busca
+searchButton.addEventListener('click', () => {
+  // Obtém o valor do campo de busca
+  const searchTerm = searchInput.value.trim()
+
+  // Verifica se o campo de busca está vazio
+  if (searchTerm === '') {
+    alert('Por favor, digite um nome ou código de Pokemon.')
+    return
+  }
+
+  // Chama a API para obter todos os Pokemons
+  pokeApi.getPokemons(0, maxRecords).then((pokemons = []) => {
+    // Filtra os resultados com base no código ou nome fornecido pelo usuário
+    const filteredPokemons = pokemons.filter((pokemon) => {
+      return pokemon.id.toString() === searchTerm || pokemon.name.toLowerCase() === searchTerm.toLowerCase()
+    })
+
+    // Verifica se há resultados
+    if (filteredPokemons.length === 0) {
+      alert(`Não foi possível encontrar nenhum Pokemon com o nome ou código "${searchTerm}".`)
+      return
+    }
+
+    // Limpa a lista de Pokemons existente
+    pokemonList.innerHTML = ''
+
+    // Converte os pokemons filtrados para elementos HTML e adiciona à lista
+    const newHtml = filteredPokemons.map(convertPokemonToLi).join('')
+    pokemonList.innerHTML = newHtml
+  })
+})
+
+
 // Obtém o elemento da lista de pokemons e o botão de "carregar mais"
 const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 
 // Define a quantidade máxima de registros que serão exibidos e a quantidade de registros carregados a cada vez
-const maxRecords = 1118
-const limit = 151
+const maxRecords = 1158
+const limit = 10
 
 // Define o índice inicial para a listagem de pokemons
 let offset = 0;

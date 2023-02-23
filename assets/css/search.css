@@ -1,0 +1,78 @@
+/* estilo para o título */
+.title {
+    animation: moveTitle 5s infinite;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: bold;
+    color: linear-gradient(to bottom, #030304, #fff);; /* cor do texto */
+    background-color: #281646; /* cor do fundo */
+    background-image: linear-gradient(to right, #edbf8c, #770ae4); /* gradiente de cores */
+    padding: 10px; /* espaçamento interno do título */
+    opacity: .7   ; /* opacidade do título */
+    border-radius: 2rem;
+    text-align: right;
+  }
+  
+  @keyframes moveTitle {
+    0% {
+      transform: translateX(-100%);
+    }
+    50% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }  
+
+  /* estilo para o campo de busca e botão */
+  .search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .search input[type="text"] {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    max-width: 100%;
+    margin-right: 10px;
+  }
+  
+  .search button {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .search button:hover {
+    background-color: #0069d9;
+  }
+  
+
+  /* Media query para dispositivos móveis */
+@media screen and (max-width: 600px) {
+    #title {
+      font-size: 18px;
+      margin-top: 8px;
+    }
+  
+    #searchInput {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  }
